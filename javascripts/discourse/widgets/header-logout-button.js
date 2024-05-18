@@ -3,7 +3,7 @@ import RenderGlimmer from "discourse/widgets/render-glimmer";
 import { createWidget } from "discourse/widgets/widget";
 
 export default createWidget("header-logout-button", {
-  tagName: "btn-flat.icon.header-logout-button",
+  tagName: "btn-flat.text.header-logout-button",
 
   html() {
     return [new RenderGlimmer(this, "div", hbs`<HeaderLogoutButton />`)];
