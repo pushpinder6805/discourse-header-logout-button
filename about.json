@@ -2,7 +2,7 @@
   "name": "Header Log Out Button",
   "component": true,
   "about_url": "https://github.com/denvergeeks/discourse-header-logout-button",
-  "about": "Adds a Log Out button to the header",
+  "about": "Adds a Log Out button to the header (except in Mobile)",
   "authors": "@denvergeeks",
   "theme_version": 0.1
 }
