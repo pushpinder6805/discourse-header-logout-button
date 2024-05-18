@@ -7,13 +7,6 @@ export default class HeaderLogoutButton extends Component {
   @service currentUser;
   @tracked isActive = false;
 
-  constructor() {
-    super(...arguments);
-    this.handleDocumentClick = this.handleDocumentClick.bind(this);
-  }
-
-
-  
 
 
 
