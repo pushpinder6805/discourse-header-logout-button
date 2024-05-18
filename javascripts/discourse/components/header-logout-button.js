@@ -24,7 +24,15 @@ export default class HeaderLogoutButton extends Component {
     }
   }
 
+  handleDocumentClick(event) {
+    const dropdown = document.querySelector(".header-user-new__menu");
+    const isClickInside = dropdown.contains(event.target);
 
+    if (!isClickInside) {
+      this.isActive = false;
+      document.removeEventListener("click", this.handleDocumentClick);
+    }
+  }
 
 
 }
