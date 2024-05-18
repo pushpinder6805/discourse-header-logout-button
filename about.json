@@ -2,9 +2,10 @@
   "name": "Header Logout Button",
   "component": true,
   "license_url": null,
-  "about_url": null,
-  "authors": denvergeeks,
-  "theme_version": null,
+  "about_url": https://github.com/denvergeeks/discourse-header-logout-button,
+  "about": "Adds a Logout button to the header",
+  "authors": "@denvergeeks",
+  "theme_version": 0.1,
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
   "assets": {
