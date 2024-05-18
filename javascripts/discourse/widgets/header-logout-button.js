@@ -4,5 +4,8 @@ import { createWidget } from "discourse/widgets/widget";
 
 export default createWidget("header-logout-button", {
 
+  html() {
+    return [new RenderGlimmer(this, "div", hbs`<HeaderLogoutButton />`)];
+  },
 
 });
