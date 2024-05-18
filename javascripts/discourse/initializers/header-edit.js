@@ -9,7 +9,7 @@ export default {
       const currentUser = api.container.lookup("service:current-user");
         if (currentUser !== null) {
 
-            api.renderInOutlet("before-header-panel", CustomHeaderTopicButton);
+            api.renderInOutlet("before-header-panel", HeaderLogoutButton);
         }
     });
   },
