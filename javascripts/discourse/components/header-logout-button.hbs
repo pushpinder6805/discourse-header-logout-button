@@ -1,23 +1,6 @@
-import DButton from "discourse/components/d-button";
-import routeAction from "discourse/helpers/route-action";
-import { apiInitializer } from "discourse/lib/api";
-
-export default apiInitializer("1.28.0", (api) => {
-  if (api.getCurrentUser()) {
-    api.headerIcons.add(
-      "logout",
-      <template>
-        <li class="logout">
-          <DButton
-            @action={{routeAction "logout"}}
-            class="btn-flat icon"
-            @icon="sign-out-alt"
-            @title="user.log_out"
-            @label="user.log_out"
-          />
-        </li>
-      </template>,
-      { before: "auth" }
-    );
-  }
-});
+<DButton @action={{route-action "logout"}}>
+  <span>
+    {{i18n "user.log_out"}}
+    {{d-icon "sign-out-alt"}}
+  </span>
+</DButton>
