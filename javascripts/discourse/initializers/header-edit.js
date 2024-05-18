@@ -5,7 +5,7 @@ import I18n from "discourse-i18n";
 
 export default {
   initialize() {
-    withPluginApi("0.8", (api) => {
+    withPluginApi("1.28.0", (api) => {
       const currentUser = api.container.lookup("service:current-user");
         if (currentUser !== null) {
           api.addToHeaderIcons("header-logout-button");
