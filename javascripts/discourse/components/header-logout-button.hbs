@@ -1,15 +1,8 @@
-<div class={{concatClass "header-logout-button" (if isActive "active")}}>
-  <button class="header-logout-button__button" type="button">
-
-
 <DButton @action={{route-action "logout"}}>
+  <span>
+    {{i18n "user.log_out"}}
+    {{d-icon "sign-out-alt"}}
+  </span>
+</DButton>
 
-          <span>
-            {{i18n "user.log_out"}}
-          {{d-icon "sign-out-alt"}}
-          </span>
 
-
-        </DButton>
-  </button>
-</div>
