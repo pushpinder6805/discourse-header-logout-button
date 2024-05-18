@@ -1,1 +1,29 @@
+.header-logout-button {
+    padding: 0;
+}
 
+li.header-logout-button button.btn.no-text {
+background: none;
+border:none;
+}
+
+li.header-logout-button button.btn.no-text .btn-primary.btn-small {
+width: 90px;
+height: 2.2857em;
+border: none;
+}
+
+li.header-logout-button button.btn.no-text .btn-primary.btn-small span {
+white-space: nowrap;
+}
+
+li.header-logout-button button.btn.no-text .btn-primary.btn-small span svg {
+font-size: var(--font-up-2);
+padding-left: .25em;
+fill: var(--secondary);
+}
+.mobile-view {
+  .header-logout-button {
+    display: none;
+  }
+}
