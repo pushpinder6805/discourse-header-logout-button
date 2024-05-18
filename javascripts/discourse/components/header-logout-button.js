@@ -11,18 +11,9 @@ export default class HeaderLogoutButton extends Component {
     super(...arguments);
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
-  @action
-  toggleDropdown() {
-    this.isActive = !this.isActive;
 
-    if (this.isActive) {
-      setTimeout(() => {
-        document.addEventListener("click", this.handleDocumentClick);
-      }, 0);
-    } else {
-      document.removeEventListener("click", this.handleDocumentClick);
-    }
-  }
+
+  
 
   handleDocumentClick(event) {
     const dropdown = document.querySelector(".header-user-new__menu");
