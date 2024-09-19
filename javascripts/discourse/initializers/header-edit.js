@@ -8,7 +8,7 @@ export default {
     withPluginApi("1.28.0", (api) => {
       const currentUser = api.container.lookup("service:current-user");
         if (currentUser !== null) {
-         api.headerIcons("header-logout-button");
+         api.addToHeaderIcons("header-logout-button");
         }
     });
   },
