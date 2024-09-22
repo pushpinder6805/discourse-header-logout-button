@@ -7,9 +7,6 @@ import icon from "discourse-common/helpers/d-icon";
 import { apiInitializer } from "discourse/lib/api";
 
 
-
-
-
 function buildIcon(iconNameOrImageUrl, title) {
     return <template>{{icon iconNameOrImageUrl label=title}}</template>;
 }
@@ -66,7 +63,7 @@ export default {
             </li>
 
     <li class="custom-header-logout-button">
-      <a class="btn no-text icon btn-flat" href="#" title="Logout">
+      <a class="btn no-text icon btn-flat header-logout" href="#" title="Logout">
         HELLO{{iconTemplate}}
       </a>
     </li>
@@ -76,7 +73,7 @@ export default {
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
   api.onPageChange(() => {
-    document.querySelector('.btn.no-text.icon.btn-flat').addEventListener('click', logoutAction);
+    document.querySelector('.btn.no-text.icon.btn-flat.header-logout').addEventListener('click', logoutAction);
   });
 
           api.headerIcons.add(link.title, iconComponent, {
