@@ -78,7 +78,9 @@ export default {
                 isLastLink
               }}
             >
-<a id="logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
+<a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title={{link.title}} rel={{rel}} style={{style}}>
+                {{iconTemplate}}
+              </a>
             </li>
 
 
