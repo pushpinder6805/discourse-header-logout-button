@@ -11,6 +11,10 @@ import icon from "discourse-common/helpers/d-icon";
 import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
 
+function logoutAction() {
+  // Trigger logout logic
+  Discourse.User.current().logout();
+}
 
 
 
@@ -94,10 +98,6 @@ export default {
           </template>;
 
 
-function logoutAction() {
-  // Trigger logout logic
-  Discourse.User.current().logout();
-}
 
 
 
