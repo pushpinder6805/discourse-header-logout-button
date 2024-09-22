@@ -66,11 +66,25 @@ export default {
                 {{iconTemplate}}
               </a>
             </li>
+
+
+      <li>
+        <a id="header-logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
+          {{dIcon "sign-out-alt"}}
+        </a>
+      </li>
+
+
           </template>;
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
-          api.headerIcons.add(link.title, iconComponent, {
+
+
+
+
+
+          api.headerIcons.add(link.title, iconComponent, header-logout-button, {
             before: beforeIcon,
           });
         });
