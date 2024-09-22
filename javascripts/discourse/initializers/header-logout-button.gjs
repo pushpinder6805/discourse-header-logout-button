@@ -17,7 +17,7 @@ function buildIcon(iconNameOrImageUrl, title) {
 }
 
 export default {
-  name: "header-icon-links",
+  name: "header-logout-button",
   initialize() {
     withPluginApi("0.8.41", (api) => {
       try {
@@ -35,7 +35,7 @@ export default {
 
         links.forEach((link, index) => {
           const iconTemplate = buildIcon(link.icon, link.title);
-          const className = `header-icon-${dasherize(link.title)}`;
+          const className = `header-logout-button`;
           const target = link.target === "blank" ? "_blank" : "";
           const rel = link.target ? "noopener" : "";
           const isLastLink =
@@ -49,7 +49,7 @@ export default {
           const iconComponent = <template>
             <li
               class={{concatClass
-                "custom-header-icon-link"
+                "custom-header-logout-button"
                 className
                 link.view
                 isLastLink
@@ -78,7 +78,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error(
           error,
-          "There's an issue in the header icon links component. Check if your settings are entered correctly"
+          "There's an issue in the header logout button component. Check if your settings are entered correctly"
         );
       }
     });
