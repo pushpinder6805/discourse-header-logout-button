@@ -75,7 +75,7 @@ export default {
 
 
 <li class="header-logout-button header-dropdown-toggle">
-  <DButton @action={{route-action "logout"}}>
+  <dbutton @action={{route-action "logout"}}>
     <span class="btn-primary btn-small">
       <span>
         {{i18n "user.log_out"}}
@@ -84,7 +84,7 @@ export default {
         {{d-icon "sign-out-alt"}}
       </span>
     </span>
-  </DButton>
+  </dbutton>
 </li>
 
 
