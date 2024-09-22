@@ -5,6 +5,7 @@ import { escapeExpression } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
 import isValidUrl from "../lib/isValidUrl";
 
+
 function buildIcon(iconNameOrImageUrl, title) {
   if (isValidUrl(iconNameOrImageUrl)) {
     return <template>
@@ -32,6 +33,24 @@ export default {
             (link) => link.view === "vdo" || link.view === "vdm"
           );
         }
+
+
+
+
+const myLogout = function () {
+    if (currentUser) {
+        currentUser.destroySession();
+    }
+};
+
+let currentUser = Discourse.User.current();
+let currentUsername = Discourse.User.current().username;
+
+onclick: myLogout
+
+
+
+
 
         links.forEach((link, index) => {
           const iconTemplate = buildIcon(link.icon, link.title);
