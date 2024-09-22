@@ -76,7 +76,7 @@ export default {
 
       <li>
         <a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title="Logout">
-          {{dIcon "sign-out-alt"}}
+          HELLO{{dIcon "sign-out-alt"}}
         </a>
       </li>
 
@@ -90,7 +90,7 @@ export default {
 
 
 
-          api.headerIcons.add(link.title, iconComponent, header-logout-button, {
+          api.headerIcons.add(link.title, iconComponent, {
             before: beforeIcon,
           });
         });
