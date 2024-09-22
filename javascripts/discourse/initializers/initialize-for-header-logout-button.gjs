@@ -75,7 +75,7 @@ export default {
 
 
       <li>
-        <a id="header-logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
+        <a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title="Logout">
           {{dIcon "sign-out-alt"}}
         </a>
       </li>
