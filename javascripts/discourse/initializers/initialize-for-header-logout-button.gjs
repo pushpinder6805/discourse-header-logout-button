@@ -9,7 +9,7 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 import { escapeExpression } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
 import isValidUrl from "../lib/isValidUrl";
-
+import { apiInitializer } from "discourse/lib/api";
 
 
 
