@@ -1,7 +1,7 @@
 en:
   theme_metadata:
     settings:
-      header_links:
+      header_logout_button_links:
         description: Custom links to be displayed in the header
         schema:
           properties:
