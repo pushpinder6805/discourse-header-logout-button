@@ -70,7 +70,7 @@ export default {
 
     <li class="custom-header-logout-button">
       <a class="btn no-text icon btn-flat" href="#" title="Logout">
-        {{iconTemplate}}
+        HELLO{{iconTemplate}}
       </a>
     </li>
           </template>;
