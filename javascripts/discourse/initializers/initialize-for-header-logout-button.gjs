@@ -6,6 +6,11 @@ import icon from "discourse-common/helpers/d-icon";
 // import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
 
+function logoutAction() {
+  // Trigger logout logic
+  Discourse.User.current().logout();
+}
+
 
 function buildIcon(iconNameOrImageUrl, title) {
     return <template>{{icon iconNameOrImageUrl label=title}}</template>;
@@ -91,7 +96,3 @@ export default {
   },
 };
 
-function logoutAction() {
-  // Trigger logout logic
-  Discourse.User.current().logout();
-}
