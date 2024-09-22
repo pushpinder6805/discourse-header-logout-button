@@ -74,7 +74,7 @@ export default {
               }}
             >
 <a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title={{link.title}} rel={{rel}} style={{style}}>
-             {{dIcon "sign-out-alt"}}
+             HELLO{{dIcon "sign-out-alt"}}
               </a>
             </li>
 
