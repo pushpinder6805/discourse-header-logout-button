@@ -23,7 +23,7 @@ function buildIcon(iconNameOrImageUrl, title) {
 }
 
 export default {
-  name: "header-logout-button-link",
+  name: "header-logout-button",
   initialize() {
     withPluginApi("0.8.41", (api) => {
       try {
@@ -55,7 +55,7 @@ export default {
           const iconComponent = <template>
             <li
               class={{concatClass
-                "custom-header-logout-link"
+                "custom-header-logout-button"
                 className
                 link.view
                 isLastLink
@@ -73,13 +73,25 @@ export default {
               </a>
             </li>
 
-
-      <li>
-        <a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title="Logout">
-          HELLO{{dIcon "sign-out-alt"}}
-        </a>
-      </li>
-
+            <li
+              class={{concatClass
+                "custom-header-logout-button"
+                className
+                link.view
+                isLastLink
+              }}
+            >
+              <a
+                class="btn no-text icon btn-flat"
+                href="#" onclick={{logoutAction}}
+                title={{link.title}}
+                target={{target}}
+                rel={{rel}}
+                style={{style}}
+              >
+                {{iconTemplate}}
+              </a>
+            </li>
 
           </template>;
 
