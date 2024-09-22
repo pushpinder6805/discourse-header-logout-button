@@ -12,7 +12,6 @@ import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
 
 function logoutAction() {
-  // Trigger logout logic
   Discourse.User.current().logout();
 }
 
@@ -64,7 +63,7 @@ export default {
           }
 
 
-          const iconComponent = <template>
+<template>
 
 
 
