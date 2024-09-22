@@ -10,28 +10,29 @@ import User from "discourse/models/user";  // Import the User model
 function logoutAction() {
   withPluginApi("0.8.41", (api) => {
     if (api && typeof api.logout === "function") {
-      // Ensure `api.logout` is callable
-      api.logout();  
+      api.logout();  // Ensure the API method for logout is valid
     } else {
       console.error("Invalid API object or logout method not found.");
     }
   });
 }
 
-// Ensure the icon is rendered before adding the event listener
-function addLogoutButtonListener() {
-  const logoutButton = document.querySelector('.btn.no-text.icon.btn-flat.header-logout');
-  
-  if (logoutButton && typeof logoutButton.addEventListener === "function") {
-    // Ensure logoutButton is a valid DOM element with an addEventListener function
-    try {
-      logoutButton.addEventListener('click', logoutAction);
-    } catch (error) {
-      console.error("Failed to add event listener: ", error);
+// Use MutationObserver to detect when the button is added to the DOM
+function observeDOMForLogoutButton() {
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        const logoutButton = document.querySelector('.btn.no-text.icon.btn-flat.header-logout');
+        if (logoutButton) {
+          logoutButton.addEventListener('click', logoutAction);
+          observer.disconnect();  // Stop observing once the button is found and the listener is added
+        }
+      }
     }
-  } else {
-    console.error("Logout button not found in the DOM or invalid element.");
-  }
+  });
+
+  // Start observing the body for added nodes (i.e., DOM changes)
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 function buildIcon(iconNameOrImageUrl, title) {
@@ -97,10 +98,9 @@ export default {
 
             api.headerIcons.add(link.title, iconComponent, { before: beforeIcon });
 
-            // Add the logout button listener after the icon is added
+            // Use MutationObserver to watch for the logout button being added to the DOM
             api.onPageChange(() => {
-              // Timeout to ensure the DOM is updated before attaching the listener
-              setTimeout(addLogoutButtonListener, 0);
+              observeDOMForLogoutButton();
             });
           } else {
             console.error("Invalid link object.");
