@@ -9,7 +9,7 @@ Svg_icons:
   default: "fab-facebook|fab-twitter"
   description:
     en: "Include FontAwesome 5 icon classes for each icon used in the list."
-header_logout_button_link:
+header_links:
   type: objects
   default:
     - title: "Desktop and mobile link"
@@ -39,7 +39,11 @@ header_logout_button_link:
           max_length: 2048
       url:
         type: string
-        required: false
+        required: true
+        validations:
+          min_length: 1
+          max_length: 2048
+          url: true
       view:
         type: enum
         choices:
