@@ -17,12 +17,12 @@ function buildIcon(iconNameOrImageUrl, title) {
 }
 
 export default {
-  name: "header-icon-links",
+  name: "header-logout-button-link",
   initialize() {
     withPluginApi("0.8.41", (api) => {
       try {
         const site = api.container.lookup("service:site");
-        let links = settings.header_links;
+        let links = settings.header_logout_button_link;
         if (site.mobileView) {
           links = links.filter(
             (link) => link.view === "vmo" || link.view === "vdm"
@@ -49,7 +49,7 @@ export default {
           const iconComponent = <template>
             <li
               class={{concatClass
-                "custom-header-icon-link"
+                "custom-header-logout-link"
                 className
                 link.view
                 isLastLink
