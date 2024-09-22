@@ -16,11 +16,6 @@ import { apiInitializer } from "discourse/lib/api";
 
 
 
-function logoutAction() {
-  // Trigger logout logic
-  Discourse.User.current().logout();
-}
-
 
 
 function buildIcon(iconNameOrImageUrl, title) {
@@ -79,7 +74,7 @@ export default {
               }}
             >
 <a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title={{link.title}} rel={{rel}} style={{style}}>
-                {{iconTemplate}}
+             {{dIcon "sign-out-alt"}}
               </a>
             </li>
 
@@ -98,6 +93,11 @@ export default {
 
           </template>;
 
+
+function logoutAction() {
+  // Trigger logout logic
+  Discourse.User.current().logout();
+}
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
