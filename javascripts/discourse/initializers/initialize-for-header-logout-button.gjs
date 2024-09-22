@@ -3,7 +3,7 @@ import concatClass from "discourse/helpers/concat-class";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { escapeExpression } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-import isValidUrl from "../lib/isValidUrl";
+// import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
 
 function logoutAction() {
@@ -12,14 +12,7 @@ function logoutAction() {
 }
 
 function buildIcon(iconNameOrImageUrl, title) {
-  if (isValidUrl(iconNameOrImageUrl)) {
-    return <template>
-      <img src={{iconNameOrImageUrl}} aria-hidden="true" />
-      <span class="sr-only">{{title}}</span>
-    </template>;
-  } else {
     return <template>{{icon iconNameOrImageUrl label=title}}</template>;
-  }
 }
 
 export default {
