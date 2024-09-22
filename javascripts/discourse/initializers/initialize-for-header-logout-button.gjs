@@ -11,6 +11,8 @@ function logoutAction() {
   Discourse.User.current().logout();
 }
 
+
+
 function buildIcon(iconNameOrImageUrl, title) {
     return <template>{{icon iconNameOrImageUrl label=title}}</template>;
 }
@@ -76,7 +78,7 @@ export default {
             >
               <a
                 class="btn no-text icon btn-flat"
-                href="#" onclick={{logoutAction}}
+                href="#" onClick= “javascript:logoutAction()”
                 title={{link.title}}
                 target={{target}}
                 rel={{rel}}
