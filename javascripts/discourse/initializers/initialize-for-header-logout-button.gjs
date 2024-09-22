@@ -78,9 +78,8 @@ export default {
             >
               <button
                 class="btn no-text icon btn-flat"
-                href="#" onClick= “javascript:logoutAction()”
+                onClick=“javascript:logoutAction()”
                 title={{link.title}}
-                target={{target}}
                 rel={{rel}}
                 style={{style}}
               >
