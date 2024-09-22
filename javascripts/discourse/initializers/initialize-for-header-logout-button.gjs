@@ -69,7 +69,7 @@ export default {
 
 
             <li>
-<a class="btn no-text icon btn-flat" href="#" onclick="{{logoutAction}}" title={{link.title}} rel={{rel}} style={{style}}>
+<a class="btn no-text icon btn-flat" href="# onclick={{logoutAction}}" title={{link.title}} rel={{rel}} style={{style}}>
              HELLO
               </a>
             </li>
