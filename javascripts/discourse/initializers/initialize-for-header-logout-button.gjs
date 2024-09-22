@@ -58,7 +58,7 @@ export default {
             >
               <a
                 class="btn no-text icon btn-flat"
-                href={{route-action "logout"}}
+                href={{link.url}}
                 title={{link.title}}
                 target={{target}}
                 rel={{rel}}
