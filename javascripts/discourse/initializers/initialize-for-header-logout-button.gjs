@@ -22,7 +22,7 @@ export default {
     withPluginApi("0.8.41", (api) => {
       try {
         const site = api.container.lookup("service:site");
-        let links = settings.header_links;
+        let links = settings.header_logout_button_link;
         if (site.mobileView) {
           links = links.filter(
             (link) => link.view === "vmo" || link.view === "vdm"
