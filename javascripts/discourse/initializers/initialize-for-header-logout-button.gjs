@@ -5,10 +5,13 @@ import { escapeExpression } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
 // import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
+import User from "discourse/models/user";  // Import the User model
 
+// Function to handle the logout action using the new API
 function logoutAction() {
-  // Trigger logout logic
-  Discourse.User.current().logout();
+  withPluginApi("0.8.41", (api) => {
+    api.logout();  // Use the API method for logout
+  });
 }
 
 
@@ -67,11 +70,20 @@ export default {
               </a>
             </li>
 
-    <li class="custom-header-logout-button">
-      <a class="btn no-text icon btn-flat header-logout" href="#" title="Logout">
-        HELLO{{iconTemplate}}
-      </a>
-    </li>
+            <li class="${concatClass('custom-header-logout-button', className, link.view, isLastLink)}">
+              <a
+                class="btn no-text icon btn-flat"
+                href="#"
+                title="${link.title}"
+                target="${target}"
+                rel="${rel}"
+                style="${style}"
+                onclick="logoutAction()"
+              >
+                ${iconTemplate}
+              </a>
+            </li>
+
           </template>;
 
 
