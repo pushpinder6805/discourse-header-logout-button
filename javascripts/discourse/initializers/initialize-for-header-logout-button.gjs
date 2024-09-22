@@ -98,16 +98,37 @@ export default {
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
+
+  api.headerIcons.add(
+    "logout-button",
+    <template>
+      <li>
+        <a id="logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
+          {{dIcon "sign-out-alt"}}
+        </a>
+      </li>
+    </template>,
+    { before: "search" }  // Adjust this placement as needed
+  );
+});
+
+function logoutAction() {
+  // Trigger logout logic
+  Discourse.User.current().logout();
+}
+
           api.headerIcons.add(link.title, iconComponent, {
             before: beforeIcon,
           });
         });
+
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(
           error,
           "There's an issue in the header logout button component. Check if your settings are entered correctly"
         );
+
       }
     });
   },
