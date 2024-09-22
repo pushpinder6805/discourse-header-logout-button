@@ -76,7 +76,7 @@ export default {
                 isLastLink
               }}
             >
-              <a
+              <button
                 class="btn no-text icon btn-flat"
                 href="#" onClick= “javascript:logoutAction()”
                 title={{link.title}}
@@ -85,7 +85,7 @@ export default {
                 style={{style}}
               >
                 {{iconTemplate}}
-              </a>
+              </button>
             </li>
 
           </template>;
