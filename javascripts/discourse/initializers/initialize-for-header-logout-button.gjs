@@ -73,8 +73,8 @@ export default {
                 isLastLink
               }}
             >
-<a class="btn no-text icon btn-flat" href="#" onclick={{logoutAction}} title={{link.title}} rel={{rel}} style={{style}}>
-             HELLO{{dIcon "sign-out-alt"}}
+<a class="btn no-text icon btn-flat" href="#" onclick="{{logoutAction}}" title={{link.title}} rel={{rel}} style={{style}}>
+             HELLO
               </a>
             </li>
 
@@ -98,6 +98,11 @@ function logoutAction() {
   // Trigger logout logic
   Discourse.User.current().logout();
 }
+
+
+
+
+
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
