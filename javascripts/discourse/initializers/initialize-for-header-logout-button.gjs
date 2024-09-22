@@ -34,24 +34,6 @@ export default {
           );
         }
 
-
-
-
-const myLogout = function () {
-    if (currentUser) {
-        currentUser.destroySession();
-    }
-};
-
-let currentUser = Discourse.User.current();
-let currentUsername = Discourse.User.current().username;
-
-onclick: myLogout
-
-
-
-
-
         links.forEach((link, index) => {
           const iconTemplate = buildIcon(link.icon, link.title);
           const className = `header-logout-button`;
@@ -85,7 +67,30 @@ onclick: myLogout
                 {{iconTemplate}}
               </a>
             </li>
+
+
+
+
+
+
+
+<li class="header-logout-button header-dropdown-toggle">
+  <DButton @action={{route-action "logout"}}>
+    <span class="btn-primary btn-small">
+      <span>
+        {{i18n "user.log_out"}}
+      </span>
+      <span>
+        {{d-icon "sign-out-alt"}}
+      </span>
+    </span>
+  </DButton>
+</li>
+
+
+
           </template>;
+
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
