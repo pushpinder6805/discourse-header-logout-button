@@ -64,7 +64,11 @@ export default {
             style = `width: ${escapeExpression(link.width)}px`;
           }
 
-          const iconComponent = <template>
+
+
+
+
+
             <li
               class={{concatClass
                 "custom-header-logout-button"
@@ -73,16 +77,7 @@ export default {
                 isLastLink
               }}
             >
-              <a
-                class="btn no-text icon btn-flat"
-                href={{link.url}} "onclick="{{logoutAction}}
-                title={{link.title}}
-                target={{target}}
-                rel={{rel}}
-                style={{style}}
-              >
-                {{iconTemplate}}
-              </a>
+<a id="logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
             </li>
 
 
