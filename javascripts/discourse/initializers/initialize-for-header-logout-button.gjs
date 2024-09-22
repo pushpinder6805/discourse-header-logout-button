@@ -3,7 +3,6 @@ import concatClass from "discourse/helpers/concat-class";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { escapeExpression } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-// import isValidUrl from "../lib/isValidUrl";
 import { apiInitializer } from "discourse/lib/api";
 import User from "discourse/models/user";  // Import the User model
 
@@ -14,9 +13,18 @@ function logoutAction() {
   });
 }
 
+// Ensure the icon is rendered before adding the event listener
+function addLogoutButtonListener() {
+  const logoutButton = document.querySelector('.btn.no-text.icon.btn-flat.header-logout');
+  if (logoutButton) {
+    logoutButton.addEventListener('click', logoutAction);
+  } else {
+    console.error("Logout button not found in the DOM.");
+  }
+}
 
 function buildIcon(iconNameOrImageUrl, title) {
-    return <template>{{icon iconNameOrImageUrl label=title}}</template>;
+  return `<template>{{icon "${iconNameOrImageUrl}" label="${title}"}}</template>`;
 }
 
 export default {
@@ -26,84 +34,55 @@ export default {
       try {
         const site = api.container.lookup("service:site");
         let links = settings.header_logout_button_link;
+
+        // Filter links based on the view
         if (site.mobileView) {
-          links = links.filter(
-            (link) => link.view === "vmo" || link.view === "vdm"
-          );
+          links = links.filter(link => link.view === "vmo" || link.view === "vdm");
         } else {
-          links = links.filter(
-            (link) => link.view === "vdo" || link.view === "vdm"
-          );
+          links = links.filter(link => link.view === "vdo" || link.view === "vdm");
         }
 
+        // Loop over each link and build the icon component
         links.forEach((link, index) => {
           const iconTemplate = buildIcon(link.icon, link.title);
           const className = `header-icon-${dasherize(link.title)}`;
           const target = link.target === "blank" ? "_blank" : "";
           const rel = link.target ? "noopener" : "";
-          const isLastLink =
-            index === links.length - 1 ? "last-custom-icon" : "";
-
+          const isLastLink = index === links.length - 1 ? "last-custom-icon" : "";
+          
           let style = "";
           if (link.width) {
             style = `width: ${escapeExpression(link.width)}px`;
           }
 
-          const iconComponent = <template>
-            <li
-              class={{concatClass
-                "custom-header-logout-button"
-                className
-                link.view
-                isLastLink
-              }}
-            >
-              <a
-                class="btn no-text icon btn-flat"
-                href={{link.url}}
-                title={{link.title}}
-                target={{target}}
-                rel={{rel}}
-                style={{style}}
-              >
-                {{iconTemplate}}
-              </a>
-            </li>
-
+          const iconComponent = `
             <li class="${concatClass('custom-header-logout-button', className, link.view, isLastLink)}">
               <a
-                class="btn no-text icon btn-flat"
+                class="btn no-text icon btn-flat header-logout"
                 href="#"
                 title="${link.title}"
                 target="${target}"
                 rel="${rel}"
                 style="${style}"
-                onclick="logoutAction()"
               >
                 ${iconTemplate}
               </a>
             </li>
-          </template>;
-
+          `;
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
-  api.onPageChange(() => {
-    document.querySelector('.btn.no-text.icon.btn-flat.header-logout').addEventListener('click', logoutAction);
-  });
+          api.headerIcons.add(link.title, iconComponent, { before: beforeIcon });
 
-          api.headerIcons.add(link.title, iconComponent, {
-            before: beforeIcon,
+          // Add the logout button listener after the icon is added
+          api.onPageChange(() => {
+            // Timeout to ensure the DOM is updated before attaching the listener
+            setTimeout(addLogoutButtonListener, 0);
           });
         });
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(
-          error,
-          "There's an issue in the header icon links component. Check if your settings are entered correctly"
-        );
+        console.error("Error in header icon links component", error);
       }
     });
   },
 };
-
