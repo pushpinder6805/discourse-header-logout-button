@@ -75,7 +75,7 @@ export default {
             >
               <a
                 class="btn no-text icon btn-flat"
-                href=href="\"#\" onclick={{logoutAction}}"
+                href="#" onclick={{logoutAction}}
                 title={{link.title}}
                 target={{target}}
                 rel={{rel}}
