@@ -16,8 +16,14 @@ function logoutAction() {
 // Ensure the icon is rendered before adding the event listener
 function addLogoutButtonListener() {
   const logoutButton = document.querySelector('.btn.no-text.icon.btn-flat.header-logout');
+  
   if (logoutButton) {
-    logoutButton.addEventListener('click', logoutAction);
+    // Ensure the logout button is a valid object
+    try {
+      logoutButton.addEventListener('click', logoutAction);
+    } catch (error) {
+      console.error("Failed to add event listener: ", error);
+    }
   } else {
     console.error("Logout button not found in the DOM.");
   }
