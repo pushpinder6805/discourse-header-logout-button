@@ -69,14 +69,7 @@ export default {
 
 
 
-            <li
-              class={{concatClass
-                "custom-header-logout-button"
-                className
-                link.view
-                isLastLink
-              }}
-            >
+            <li>
 <a class="btn no-text icon btn-flat" href="#" onclick="{{logoutAction}}" title={{link.title}} rel={{rel}} style={{style}}>
              HELLO
               </a>
