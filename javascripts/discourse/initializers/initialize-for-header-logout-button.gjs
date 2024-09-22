@@ -68,34 +68,19 @@ export default {
               </a>
             </li>
 
-            <li
-              class={{concatClass
-                "custom-header-logout-button"
-                className
-                link.view
-                isLastLink
-              }}
-            >
-            </li>
-              <button
-                class="btn no-text icon btn-flat"
-                onClick=“javascript:logoutAction()”
-                title={{link.title}}
-                rel={{rel}}
-                style={{style}}
-              >
-                {{iconTemplate}}
-              </button>
-
-
+    <li class="custom-header-logout-button">
+      <a class="btn no-text icon btn-flat" href="#" title="Logout">
+        {{iconTemplate}}
+      </a>
+    </li>
           </template>;
+
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
 
-
-
-
-
+  api.onPageChange(() => {
+    document.querySelector('.btn.no-text.icon.btn-flat').addEventListener('click', logoutAction);
+  });
 
           api.headerIcons.add(link.title, iconComponent, {
             before: beforeIcon,
