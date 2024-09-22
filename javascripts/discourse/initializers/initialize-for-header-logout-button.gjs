@@ -49,7 +49,7 @@ export default {
             style = `width: ${escapeExpression(link.width)}px`;
           }
 
-          const iconComponent ='
+          const iconComponent = <template>
             <li
               class={{concatClass
                 "custom-header-logout-button"
@@ -82,7 +82,8 @@ export default {
               >
                 ${iconTemplate}
               </a>
-            </li>';
+            </li>
+          </template>;
 
 
           const beforeIcon = ["chat", "search", "hamburger", "user-menu"];
