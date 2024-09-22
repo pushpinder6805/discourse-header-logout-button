@@ -39,11 +39,7 @@ header_logout_button_link:
           max_length: 2048
       url:
         type: string
-        required: true
-        validations:
-          min_length: 1
-          max_length: 2048
-          url: true
+        required: false
       view:
         type: enum
         choices:
