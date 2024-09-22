@@ -12,21 +12,9 @@ import isValidUrl from "../lib/isValidUrl";
 
 
 
-import { apiInitializer } from "discourse/lib/api";
 
-export default apiInitializer("1.34.0", (api) => {
-  api.headerIcons.add(
-    "logout-button",
-    <template>
-      <li>
-        <a id="logout-button" class="icon" href="#" onclick={{logoutAction}} title="Logout">
-          {{dIcon "sign-out-alt"}}
-        </a>
-      </li>
-    </template>,
-    { before: "search" }  // Adjust this placement as needed
-  );
-});
+
+
 
 function logoutAction() {
   // Trigger logout logic
@@ -87,7 +75,7 @@ export default {
             >
               <a
                 class="btn no-text icon btn-flat"
-                href={{link.url}}
+                href=href="\"#\" onclick={{logoutAction}}"
                 title={{link.title}}
                 target={{target}}
                 rel={{rel}}
