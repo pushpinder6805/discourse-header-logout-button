@@ -1,3 +1,5 @@
+CURRENTLY NOT WORKING
+
 NEEDS UPDATING/refactoring to Glimmer -- TO WORK, see:
 
 https://meta.discourse.org/t/upcoming-header-changes-preparing-themes-and-plugins/296544
